@@ -13,7 +13,8 @@ pinMode(7,OUTPUT);
 pinMode(8,OUTPUT);
 pinMode(9,OUTPUT);
 
-}
+} //yes
+
 
 void loop() {
   // put your main code here, to run repeatedly:
