@@ -16,6 +16,6 @@ int s2=digitalRead(4);
 int s3=digitalRead(5);
 
   
-//added
+//added emoved
 
 }
