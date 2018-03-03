@@ -8,3 +8,5 @@ namely   ****forward collision alert *****
 and then there another file "sensors" which is the arduino code for the car back to have the sensor array on it 
 
 there is another folder named RPI where the readme file is provided to follow the steps for the raspberry pi and camera setup
+
+here there is also a file named BLUETOOTH CAR where there is given the arduino code for the smartphone controlled bluetooth car
