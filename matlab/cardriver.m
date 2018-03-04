@@ -20,24 +20,18 @@ cd ..;
 open(vidWriter);
 
 
-cd code;
-rectI=zeros(720,720);
-trap=[178 720; 552 450; 728 450; 1280 720];
-rect=[475 720; 475 0; 800 0; 800 720];
-c = [552 178 1280 728];
-r = [450 720 720 450];
-BW = poly2mask(c,r,720,1280);
 
-gray=imdilate(gray,strel('disk',6));             %dialation process
-    
-    [labeledImage, numberOfBlobs] = bwlabel(gray);
-    blobMeasurements = regionprops(labeledImage, 'area');
-    allAreas = [blobMeasurements.Area];
+
+
+ biggestBlob2=imerode(biggestBlob2,strel('disk',4));   %ersosion process
    
-    [sortedAreas, sortIndexes] = sort(allAreas, 'descend');
-    biggestBlob1 = ismember(labeledImage, sortIndexes(1));
-    if size(sortIndexes,2)>2
-        biggestBlob2 = ismember(labeledImage, sortIndexes(2:3));
-    else
-        biggestBlob2 = ismember(labeledImage, sortIndexes(2));
+    stats1=regionprops(biggestBlob1,'Extrema');
+    stats2=regionprops(biggestBlob2,'Extrema');
+    stats2E=[];
+    stx=[];sty=[];
+    for j=1:size(stats2,1)
+        stats2E=[stats2E;stats2(j).Extrema];
+        stx=[stx,stats2(j).Extrema(:,1)];
+        sty=[sty,stats2(j).Extrema(:,2)];
+    end
     end
