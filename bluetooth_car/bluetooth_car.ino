@@ -1,6 +1,9 @@
 // Android Phone Controlled Robot
 // Successfully Tested on Android App --> 'Arduino Bluetooth 
 // Terminal'; it is available free on the Google Play Store
+
+//coded by Milin parekh 
+//follow my instagram page ****  www.instagram.com/build_more/  ****
 char state;
 int flag=0;            // ALL THE UDF ARE DECLAREDHERE
 void stp();
@@ -14,15 +17,10 @@ void setup()
     pinMode(3,OUTPUT);                  
     pinMode(4,OUTPUT);                  
     pinMode(5,OUTPUT);                  
-    pinMode(2,OUTPUT);  
-    //pinMode(13,OUTPUT);  
-   // pinMode(12,OUTPUT);  
-                    
+    pinMode(2,OUTPUT);                  
 Serial.begin(9600);   // Baud rate set to 9600bps
 }
 void loop() {
-  //digitalWrite(13,HIGH);
-  //digitalWrite(12,HIGH);
     if(Serial.available() > 0)      // Ckeck for command Recieved
     {    
       state = Serial.read();
@@ -114,8 +112,7 @@ void left()          //LEFT
   digitalWrite(3,HIGH);
   digitalWrite(5,LOW);
   delay (10);
-  digitalWrite(2,LOW);
-  digitalWrite(3,LOW); 
+  digitalWrite(2,LOW); 
  }
 void right()          // Right
 {
@@ -125,7 +122,6 @@ void right()          // Right
   digitalWrite(5,HIGH);
  delay (10);
  digitalWrite(4,LOW);
-  digitalWrite(5,LOW);
 }
 void stp()            // Robot STops
 {
