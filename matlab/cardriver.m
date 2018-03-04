@@ -27,3 +27,17 @@ rect=[475 720; 475 0; 800 0; 800 720];
 c = [552 178 1280 728];
 r = [450 720 720 450];
 BW = poly2mask(c,r,720,1280);
+
+gray=imdilate(gray,strel('disk',6));             %dialation process
+    
+    [labeledImage, numberOfBlobs] = bwlabel(gray);
+    blobMeasurements = regionprops(labeledImage, 'area');
+    allAreas = [blobMeasurements.Area];
+   
+    [sortedAreas, sortIndexes] = sort(allAreas, 'descend');
+    biggestBlob1 = ismember(labeledImage, sortIndexes(1));
+    if size(sortIndexes,2)>2
+        biggestBlob2 = ismember(labeledImage, sortIndexes(2:3));
+    else
+        biggestBlob2 = ismember(labeledImage, sortIndexes(2));
+    end
