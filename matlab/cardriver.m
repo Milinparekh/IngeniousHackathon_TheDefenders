@@ -18,3 +18,12 @@ vidWriter.FrameRate=30;
 cd ..;
 
 open(vidWriter);
+
+
+cd code;
+rectI=zeros(720,720);
+trap=[178 720; 552 450; 728 450; 1280 720];
+rect=[475 720; 475 0; 800 0; 800 720];
+c = [552 178 1280 728];
+r = [450 720 720 450];
+BW = poly2mask(c,r,720,1280);
